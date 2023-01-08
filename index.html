@@ -1,43 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <title>Hylexaa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+    :root {
+      --cubic: .4s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+      
+      --bg: #ddd;
+      --player-bg: #eef5f9;
+      --navy: #3d415b;
+      --grey: #a0aebb;
+      --icon: #99acb7;
+      --lightgrey: #ced3e2;
+      --bold-text: #4e5068;
+      
+      --song1: #d1a1d8;
+    }
+    body {
+      padding:0;
+      margin:0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-image: url('2.jpg');
+      font-family: 'Oxygen', sans-serif;
+          
+    
+    }
+    ion-icon {
+      font-size: 2em;
+      color: var(--icon);
+      margin: 5px;
+      transition: .4s;
+      cursor: pointer;
+    }
+    #play {
+      font-size: 2.5em;
+      color: var(--navy);
+    }
+    h, p, p1 {
+      transform: var(--cubic);
+    }
+    h {
+      font-size: 1em;
+      color: var(--bold-text);
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    p {
+      color: var(--grey);
+      font-size: 0.8em;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    p1 {
+      color: var(--lightgrey);
+      font-size: 0.7em;
+      text-transform: uppercase;
+    }
+    .player-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* height: 500px; */
+      width: 300px;
+      border-radius: 15px;
+      background: var(--player-bg);
+      z-index: 1;
+      box-shadow: inset 1px 1px 2px rgb(0 0 0 / 27%), 1px 1px 1px rgb(255 255 255 / 71%);
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4px;
+    }
+    
+    .album::before {
+        position: absolute;
+        z-index: -1 !important;
+        transform: translate(-2px,0px) scaleY(1.0125);
+        filter: brightness(0.94) blur(0.2px) saturate(0.9);
+        content: "";
+        width: calc(100% + 6px);
+        height: calc(100% + 4px);
+        margin: auto !important;
+        background: inherit;
+        opacity: 0.75;
+        display: flex;
+        border-radius: 7px;
+    }
+    
+    .album::after {
+         background-color: #ffffff;
+         opacity: 0.0;
+         content: "";
+         position: absolute;
+         display: flex;
+         z-index: 
+    1 !important;
+         background-size: cover;
+         background-repeat: no-repeat;
+         height: 240px;
+         width: 240px;
+         background-position: 50% 50%;
+         transform: 
+    translate(-1px, 0px);
+    }
+    
+    .album {
+         height: 240px;
+         width: 240px;
+         border-radius: 5px;
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: cover;
+         background-image: url("3.jpg");
+         background-size: 104%;
+         border: 2.25px solid hsl(229deg 24% 26% / 0%);
+         background-repeat: repeat;
+         box-shadow: rgb(16 26 64 / 0%) 0px 0px 1px, rgb(16 26 64 / 10%) -4px 0px 3px, rgb(16 26 64 / 10%) -12px 2px 6px, rgb(16 26 64 / 10%) -23px 4px 10px, rgb(16 26 64 / 10%) -39px 8px 15px, rgb(16 26 64 / 10%) -60px 12px 21px;
+      
+      box-shadow: 0px 1px 0px 0px rgb(255 255 255 / 50%) inset, 0px 3px 2px -1px rgb(13 13 13 / 65%), 0px 6px 6px 0px rgb(0 0 0 / 15%), 0px -4px 4px 0px rgb(0 0 0 / 15%) inset, 0px 2px 4px 2px rgb(255 255 255 / 55%) inset, 0px 0px 1px 2px rgb(0 0 0 / 10%), 0 0.0625em 0.1875em  rgb(0 0 0 / 500%);
+         position: relative;
+         opacity: 1;
+    }
+    
+    .song-info {
+      /* display: flex; */
+      flex-direction: row-reverse;
+      align-items: center;
+      margin: 10px;
+    }
+    .progress-bar {
+      width: 200px;
+      height: 5px;
+      border-radius: 15px;
+      background: var(--bg);
+    }
+    #progress {
+      border-radius: 5px;
+      width: 40%;
+      height: 5px;
+      background: var(--song1);
+    }
+    .controls {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 60%;
+    }
+    </style>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="https://hylexaa.com/letter-h.png">
-  <title>Hylexaa</title>
-  <meta name="description" content="HylexaaDotCom">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Hylexaa">
-  <meta property="og:description" content="HylexaaDotCom">
-  <meta property="og:image" content="https://hylexaa.com/669645857756.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="hylexaa.com">
-  <meta property="twitter:url" content="https://hylexaa.com">
-  <meta name="twitter:title" content="Hylexaa">
-  <meta name="twitter:description" content="HylexaaDotCom">
-  <meta name="twitter:image" content="https://hylexaa.com/669645857756.jpg">
-<style>
-.responsive {
-  width: 70%;
-  height: 70%;
-  border-radius:10px;
-  max-width: 100%;
-}
-</style>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K3LF5M3');</script>
-<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3LF5M3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<center>
-    <img src="669645857756.jpg" alt="Patrick" class="responsive">
-</center>
+    <div class="player-wrapper">
+        <header>
+          <p1></p1>
+          <p></p>
+        </header>
+        <div class="album"></div>
+        <div class="song-info">
+          <h id="h"></h>
+        <a href="https://www.instagram.com/tomo.op/" target="_blank" style="font-size: 35px;color: #3d415b;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/tomo.julianto" target="_blank" style="font-size: 35px;color: #3d415b;"><i class="fa-brands fa-facebook"></i></a>
+        <a href="" style="font-size: 35px;color: #3d415b;"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
 </body>
+
 </html>
